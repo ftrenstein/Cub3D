@@ -6,13 +6,12 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:54 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/20 23:17:48 by renstein         ###   ########.fr       */
+/*   Updated: 2022/12/21 21:19:29 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "../includes/cud3d.h"
 
-// void	print_map(t_all *all);
 void	read_map(char *path_map, t_params *all)
 {
 	int		j;
@@ -51,7 +50,7 @@ int		ft_strlen(char *s)
 	return(i);
 }
 
-char	*ft_strdup(char *s1, char *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -83,7 +82,7 @@ char	*get_last_line(char *s, int i, char *res)
 	if (s[0] != 0 && BUFFER_SIZE > 0)
 	{
 		s[i] = 0;
-		res = ft_strdup(res, s);
+		res = ft_strjoin(res, s);
 		s[0] = 0;
 		return (res);
 	}
@@ -106,13 +105,13 @@ char	*get_next_line(int	fd)
 		if ((i + 1) == BUFFER_SIZE && s[i] != '\n' && s[i] != 0)
 		{
 			s[i + 1] = 0;
-			res = ft_strdup(res, s);
+			res = ft_strjoin(res, s);
 			i = -1;
 		}
 		if (s[i] == '\n')
 		{
 			s[i + 1] = 0;
-			res = ft_strdup(res, s);
+			res = ft_strjoin(res, s);
 			return (res);
 		}
 		i++;
