@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:51:13 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/22 08:27:32 by renstein         ###   ########.fr       */
+/*   Updated: 2022/12/24 23:29:49 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,6 @@ int ft_exit(t_params *params)
 void	start_game(t_params *params)
 {	
 	find_player(params);
-	params->mlx = mlx_init();
-	params->mlx_win = mlx_new_window(params->mlx, WINDOW_W, WINDOW_H, "cub3d");
 	mlx_loop_hook(params->mlx, &main_loop, params);
 	mlx_key_hook(params->mlx_win, &ft_key_up, params);
 	mlx_hook(params->mlx_win, 2, 1L, &ft_key_down, params);

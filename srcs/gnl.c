@@ -6,39 +6,11 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:54 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/21 21:19:29 by renstein         ###   ########.fr       */
+/*   Updated: 2022/12/26 19:13:58 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cud3d.h"
-
-void	read_map(char *path_map, t_params *all)
-{
-	int		j;
-	int		fd;
-	int		i;
-	char	*s;
-
-	all->countlines = 0;
-	i = 0;
-	fd = open(path_map, O_RDONLY);
-
-	s = get_next_line(fd);
-	while (s[++i] != '\0')
-		all->countlines++;
-	free(s);
-	close(fd);
-	all->all_file = malloc(sizeof(char *) * all->countlines);
-	if (!all->all_file)
-		ft_clear(all);
-	fd = open(path_map, O_RDONLY);
-	j = 0;
-	while (j < all->countlines)
-	{
-		all->all_file[j++] = get_next_line(fd);
-	}
-	close (fd);
-}
 
 int		ft_strlen(char *s)
 {

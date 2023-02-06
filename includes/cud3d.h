@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/22 08:38:50 by renstein         ###   ########.fr       */
+/*   Updated: 2022/12/30 23:29:50 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 # define BUFFER_SIZE 5000
 
-# define WINDOW_W 700
-# define WINDOW_H 480
+# define WINDOW_W 1080
+# define WINDOW_H 720
 
 # define KEY_W 119
 # define KEY_A 97
@@ -32,11 +32,11 @@
 # define KEY_UP 65362
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
-# define KEY_DOWN 64364
+# define KEY_DOWN 65364
 # define KEY_ESC 65307
 
-# define ROTATION_SPEED 0.01f
-# define MOVE_SPEED 0.01f
+# define ROTATION_SPEED 0.02f
+# define MOVE_SPEED 0.03f
 
 typedef struct s_player
 {
@@ -44,6 +44,7 @@ typedef struct s_player
 	double	posY;
 	double	dirX;
 	double	dirY;
+	double	dirZ;
 	double	planeX;
 	double	planeY;	
 }			t_player;
@@ -69,6 +70,8 @@ typedef struct	s_img
 	char	*addr;
 	int		bits_per_pixel;
 	int		line_length;
+	int		height;
+	int		width;
 	int		endian;
 }				t_img;
 
@@ -80,6 +83,8 @@ typedef struct s_move
 	int	right;
 	int	rot_right;
 	int	rot_left;
+	int	rot_up;
+	int	rot_down;
 }		t_move;
 
 
@@ -88,6 +93,7 @@ typedef struct s_params
 	void	*mlx;
 	void	*mlx_win;
 	t_img	img;
+	
 	int		countlines;
 	int		part1;
 	
@@ -96,10 +102,7 @@ typedef struct s_params
 	char	*west;
 	char	*east;
 
-	int		nord_fd;
-	int		south_fd;
-	int		west_fd;
-	int		east_fd;
+	t_img	textures[4];
 
 	char	*color_floor;
 	char	*color_ceiling;
@@ -107,7 +110,7 @@ typedef struct s_params
 	char	**map;
 
 	int		txt_index;
-
+	double	texture_w;
 
 	t_move		move;
 	t_player	*player;
@@ -117,14 +120,19 @@ char	*get_next_line(int fd);
 char	*get_last_line(char *s, int i, char *res);
 int		ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strjoin2(char *src);
+char	*ft_strdup(char *src);
+int		ft_strcmp(const char *s1, const char *s2);
 
+
+int		valid_main(t_params	*all);
 
 void	read_map(char *path_map, t_params *all);
 
 void	pars_params(t_params *all);
 
 void	ft_clear(t_params *all);
+int		begin_map(t_params	*all);
+
 
 // Vova tut nasral
 void	start_game(t_params *params);

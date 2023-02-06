@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:03:14 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/22 08:40:54 by renstein         ###   ########.fr       */
+/*   Updated: 2022/12/23 07:46:36 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ static void	init_ray(t_ray *ray, t_params *params, int i, double rayX, double ra
 double	ray(t_params *params, int i, double rayX, double rayY)
 {
 	t_ray	ray;
+	double	block_w;
 
 	init_ray(&ray, params, i, rayX, rayY);
 	int hit = 0;
@@ -81,31 +82,34 @@ double	ray(t_params *params, int i, double rayX, double rayY)
 		if(params->map[ray.mapY][ray.mapX] == '1') 
 			hit = 1;
 	}
-	double perpWallDist;
-	
-	if(side == 0)
-		perpWallDist = ray.sideDistX - ray.deltaX;
-	else
-		perpWallDist = ray.sideDistY - ray.deltaY;
 
+	double perpWallDist;
 	if (side == 0)
 	{
 		if (ray.deltaX > 0)
 			params->txt_index = 0;
 		else
 			params->txt_index = 2;
+		
+		perpWallDist = fabs(ray.sideDistX - ray.deltaX);
 	}
 	else
 	{
-		if (ray.deltaY > 0)
+		if (ray.dirY > 0)
 			params->txt_index = 3;
 		else
 			params->txt_index = 1;
+
+		perpWallDist = fabs(ray.sideDistY - ray.deltaY);
 	}
-	
-	if (perpWallDist < 0)
-		perpWallDist = -perpWallDist;
-	
+	double wallX;
+    if (side == 0)
+		wallX = params->player->posY + perpWallDist * ray.dirY;
+      else
+	  	wallX = params->player->posX + perpWallDist * ray.dirX;
+    wallX -= floor((wallX));
+	params->texture_w = wallX;
+
 	return (perpWallDist);
 }
 
