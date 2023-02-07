@@ -1,11 +1,32 @@
 NAME	= cub3D
 
-SRCS	= srcs/main.c srcs/validmap1.c srcs/gnl.c srcs/utils.c srcs/start_game.c srcs/draw.c srcs/ray_casting.c srcs/keys.c
-HEDEAR	= cub3D.h
+HEDEAR	= cub3d.h
+
+MAIN		= main start_game
+
+MOVEMENT	= keys
+
+RAY_CASTING	= ray_casting
+
+RENDERING	= draw mini_map
+
+UTILS		= utils gnl
+
+MAP			= validmap1
+
+SRCS	= $(addsuffix .c, $(addprefix srcs/, $(MAIN))) \
+		  $(addsuffix .c, $(addprefix srcs/movement/, $(MOVEMENT))) \
+		  $(addsuffix .c, $(addprefix srcs/ray_casting/, $(RAY_CASTING))) \
+		  $(addsuffix .c, $(addprefix srcs/rendering/, $(RENDERING))) \
+		  $(addsuffix .c, $(addprefix srcs/utils/, $(UTILS))) \
+		  $(addsuffix .c, $(addprefix srcs/map/, $(MAP)))
+		  
+OBJ		= $(SRCS:.c=.o)
 
 MLX		= -Lmlx_linux -lmlx_Linux -L./mlx -Imlx_linux -lXext -lX11 -lm -lz  -g -o
-OBJ		= $(SRCS:.c=.o)
+
 CC		= cc
+
 FLAGS	= -Wall -Wextra -Werror -Imlx -g -I includes/ #-fsanitize=address
 
 all: $(NAME)

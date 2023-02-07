@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 23:24:49 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/26 19:08:22 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:46:42 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cud3d.h"
+#include "../../includes/cub3d.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+int	ft_strcmp(const char *s1, const char *s2)
 {
 	int		i;
 
@@ -35,7 +35,8 @@ char	*ft_strdup(char *src)
 	size = 0;
 	while (src[size])
 		++size;
-	if (!(new = malloc(sizeof(char) * (size + 1))))
+	new = malloc(sizeof(char) * (size + 1));
+	if (!new)
 		return (NULL);
 	i = 0;
 	while (src[i])
@@ -47,7 +48,7 @@ char	*ft_strdup(char *src)
 	return (new);
 }
 
-  void	ft_clear(t_params *all)
+void	ft_clear(t_params *all)
 {
 	int	i;
 
@@ -66,7 +67,8 @@ int	ft_atoi(char *str)
 	sum = 0;
 	sign = 1;
 	found = 1;
-	while (*str == ' ' || *str == '\t' || *str == '\n' || *str == '\f' || *str == '\r')
+	while (*str == ' ' || *str == '\t'
+		|| *str == '\n' || *str == '\f' || *str == '\r')
 		str++;
 	if (*str == '-')
 		sign = -1;

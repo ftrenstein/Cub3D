@@ -3,55 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:51:13 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/24 23:29:49 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:06:18 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cud3d.h"
+#include "../includes/cub3d.h"
+
+static void	set_player_position(t_params *params, double dirX, double dirY)
+{
+	params->player->dir_y = dirY;
+	params->player->dir_x = dirX;
+	params->player->plane_x = -(int)dirY * 0.66f;
+	params->player->plane_y = (int)dirX * 0.66f;
+}
+
+static int	is_player(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (1);
+	return (0);
+}
 
 static void	find_player(t_params *params)
 {
-	int	i = 0;
+	int	i;
+	int	j;
+
+	i = 0;
 	while (params->map[i])
 	{
-		int j = 0;
+		j = 0;
 		while (params->map[i][j] && params->map[i][j] != '\n')
 		{
-			if (params->map[i][j] == 'N' || params->map[i][j] == 'S' || params->map[i][j] == 'E' || params->map[i][j] == 'W')
+			if (is_player(params->map[i][j]))
 			{
-				params->player->posX = j + 0.5f;
-				params->player->posY = i + 0.5f;
+				params->player->pos_x = j + 0.5f;
+				params->player->pos_y = i + 0.5f;
 				if (params->map[i][j] == 'N')
-				{
-					params->player->dirY = -1.0f;
-					params->player->dirX = 0.0f;
-					params->player->planeX = 0.66f;
-					params->player->planeY = 0.0f;
-				}
+					set_player_position(params, 0.0f, -1.0f);
 				if (params->map[i][j] == 'S')
-				{
-					params->player->dirY = 1.0f;
-					params->player->dirX = 0.0f;
-					params->player->planeX = -0.66f;
-					params->player->planeY = 0.0f;
-				}
+					set_player_position(params, 0.0f, 1.0f);
 				if (params->map[i][j] == 'E')
-				{
-					params->player->dirY = 0.0f;
-					params->player->dirX = 1.0f;
-					params->player->planeX = 0.0f;
-					params->player->planeY = 0.66f;
-				}
+					set_player_position(params, 1.0f, 0.0f);
 				if (params->map[i][j] == 'W')
-				{
-					params->player->dirY = 0.0f;
-					params->player->dirX = -1.0f;
-					params->player->planeX = 0.0f;
-					params->player->planeY = -0.66f;
-				}
+					set_player_position(params, -1.0f, 0.0f);
 				return ;
 			}
 			j++;
@@ -60,8 +58,9 @@ static void	find_player(t_params *params)
 	}
 }
 
-int ft_exit(t_params *params)
+int	ft_exit(t_params *params)
 {
+	// free........
 	exit(0);
 }
 

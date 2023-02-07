@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cud3d.h                                            :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/30 23:29:50 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/07 05:26:41 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,36 +35,36 @@
 # define KEY_DOWN 65364
 # define KEY_ESC 65307
 
-# define ROTATION_SPEED 0.02f
+# define ROTATION_SPEED 0.03f
 # define MOVE_SPEED 0.03f
 
 typedef struct s_player
 {
-	double	posX;
-	double	posY;
-	double	dirX;
-	double	dirY;
-	double	dirZ;
-	double	planeX;
-	double	planeY;	
+	double	pos_x;
+	double	pos_y;
+	double	dir_x;
+	double	dir_y;
+	double	dir_z;
+	double	plane_x;
+	double	plane_y;	
 }			t_player;
 
 typedef struct s_ray
 {
-	double	cameraX;
-	double	dirX;
-	double	dirY;
-	int		mapX;
-	int		mapY;
-	double	sideDistX;
-	double	sideDistY;
-	double	deltaX;
-	double	deltaY;
-	int		stepX;
-	int		stepY;
+	double	cam_x;
+	double	dir_x;
+	double	dir_y;
+	int		map_x;
+	int		map_y;
+	double	side_dist_x;
+	double	side_dist_y;
+	double	delta_x;
+	double	delta_y;
+	int		step_x;
+	int		step_y;
 }		t_ray;
 
-typedef struct	s_img
+typedef struct s_img
 {
 	void	*img;
 	char	*addr;
@@ -87,31 +87,24 @@ typedef struct s_move
 	int	rot_down;
 }		t_move;
 
-
 typedef struct s_params
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_img	img;
-	
-	int		countlines;
-	int		part1;
-	
-	char	*nord;
-	char	*south;
-	char	*west;
-	char	*east;
-
-	t_img	textures[4];
-
-	char	*color_floor;
-	char	*color_ceiling;
-	char	**all_file;
-	char	**map;
-
-	int		txt_index;
-	double	texture_w;
-
+	void		*mlx;
+	void		*mlx_win;
+	t_img		img;
+	int			countlines;
+	int			part1;
+	char		*nord;
+	char		*south;
+	char		*west;
+	char		*east;
+	t_img		textures[4];
+	char		*color_floor;
+	char		*color_ceiling;
+	char		**all_file;
+	char		**map;
+	int			txt_index;
+	double		texture_w;
 	t_move		move;
 	t_player	*player;
 }t_params;
@@ -123,7 +116,6 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 
-
 int		valid_main(t_params	*all);
 
 void	read_map(char *path_map, t_params *all);
@@ -133,10 +125,10 @@ void	pars_params(t_params *all);
 void	ft_clear(t_params *all);
 int		begin_map(t_params	*all);
 
-
 // Vova tut nasral
 void	start_game(t_params *params);
 void	ft_draw(t_params *params);
+void	mini_map(t_params *params);
 void	ray_casting(t_params *params);
 void	ft_line(t_params *params, int i, double dist);
 int		ft_key_down(int key, t_params *params);
@@ -144,7 +136,6 @@ int		ft_exit(t_params *params);
 int		ft_key_up(int key, t_params *params);
 int		main_loop(t_params *params);
 double	ray(t_params *params, int i, double rayX, double rayY);
-
 
 // int		moveplayer(t_all	*all);
 // void	ft_clear(t_all *all);

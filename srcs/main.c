@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:02:07 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/24 16:28:25 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/07 04:41:50 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cud3d.h"
+#include "../includes/cub3d.h"
 
 int main(int argc, char **argv)
 {
@@ -50,9 +50,9 @@ int main(int argc, char **argv)
     all.player = (t_player *)malloc(sizeof(t_player));
     if (!all.player)
         ft_exit(&all);
-    all.player->dirZ = 0;
+    all.player->dir_z = 0;
     start_game(&all);
-    printf("\n\nPlayer pos: %f, %f", all.player->posX, all.player->posY);
+    printf("\n\nPlayer pos: %f, %f", all.player->pos_x, all.player->pos_y);
     
     return 0;    
 }

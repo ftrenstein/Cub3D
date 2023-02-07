@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:54 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/26 19:13:58 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/07 03:45:39 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cud3d.h"
+#include "../../includes/cub3d.h"
 
-int		ft_strlen(char *s)
+int	ft_strlen(char *s)
 {
 	int	i;
 
 	i = 0;
 	while (s[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 char	*ft_strjoin(char *s1, char *s2)
@@ -61,18 +61,17 @@ char	*get_last_line(char *s, int i, char *res)
 	return (NULL);
 }
 
-
-char	*get_next_line(int	fd)
+char	*get_next_line(int fd)
 {
-	static	char	s[BUFFER_SIZE + 1];
-	char			*res;
-	int				i;
+	static char	s[BUFFER_SIZE + 1];
+	char		*res;
+	int			i;
 
 	i = 0;
 	res = "";
 	s[0] = 0;
 	while (read(fd, &s[i], 1) && i <= BUFFER_SIZE && BUFFER_SIZE > 0 && fd >= 0
-							&& (fd < 100 || BUFFER_SIZE < 1000) && s[i] != 0)
+		&& (fd < 100 || BUFFER_SIZE < 1000) && s[i] != 0)
 	{
 		if ((i + 1) == BUFFER_SIZE && s[i] != '\n' && s[i] != 0)
 		{

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   validmap1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/30 23:33:52 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/07 02:05:48 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cud3d.h"
+#include "../../includes/cub3d.h"
 
 void	valid_texture(t_params	*all)
 {
@@ -18,26 +18,26 @@ void	valid_texture(t_params	*all)
 	int	width;
 	int	fd;
 	printf("%s\n", all->nord);
-	if (fd = open(all->nord, O_RDONLY) < 0)
+	if ((fd = open(all->nord, O_RDONLY)) < 0)
 	{
 		printf("Error path nord texture\n");
 		ft_exit(all);
 	}
 	close(fd);
 	printf("\n%s\n", all->east);
-	if (fd = open(all->east, O_RDONLY) < 0)
+	if ((fd = open(all->east, O_RDONLY)) < 0)
 	{
 		printf("Error path east texture\n");
 		ft_exit(all);
 	}
 	close(fd);
-	if (fd = open(all->south, O_RDONLY) < 0)
+	if ((fd = open(all->south, O_RDONLY)) < 0)
 	{
 		printf("Error path south texture\n");
 		ft_exit(all);
 	}
 	close(fd);
-	if (fd = open(all->west, O_RDONLY)  < 0)
+	if ((fd = open(all->west, O_RDONLY))  < 0)
 	{
 		printf("Error path west texture\n");
 		ft_exit(all);
@@ -224,10 +224,8 @@ int		check_path(char *path_map)
 		if (open(path_map, O_RDONLY))
 			return 0;
 	}
-	else 
-		return 0;
-	
-	
+
+	return 0;
 }
 
 void	read_map(char *path_map, t_params *all)

@@ -1,2 +1,2 @@
 # Cub3D
-# It's project  game in 3D 
+# It's a project game in 3D
