@@ -1,4 +1,4 @@
-NAME	= cub3D
+NAME	= cub3d
 
 HEDEAR	= cub3d.h
 
@@ -10,17 +10,14 @@ RAY_CASTING	= ray_casting
 
 RENDERING	= draw mini_map
 
-UTILS		= utils gnl
-
-MAP			= validmap1
+MAP			= val_main val_texture gnl utils
 
 SRCS	= $(addsuffix .c, $(addprefix srcs/, $(MAIN))) \
 		  $(addsuffix .c, $(addprefix srcs/movement/, $(MOVEMENT))) \
 		  $(addsuffix .c, $(addprefix srcs/ray_casting/, $(RAY_CASTING))) \
 		  $(addsuffix .c, $(addprefix srcs/rendering/, $(RENDERING))) \
-		  $(addsuffix .c, $(addprefix srcs/utils/, $(UTILS))) \
 		  $(addsuffix .c, $(addprefix srcs/map/, $(MAP)))
-		  
+
 OBJ		= $(SRCS:.c=.o)
 
 MLX		= -Lmlx_linux -lmlx_Linux -L./mlx -Imlx_linux -lXext -lX11 -lm -lz  -g -o

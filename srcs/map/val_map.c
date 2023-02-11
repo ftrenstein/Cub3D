@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validmap2.c                                        :+:      :+:    :+:   */
+/*   val_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:45 by renstein          #+#    #+#             */
-/*   Updated: 2022/12/21 21:12:45 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:47:26 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cud3d.h"
+#include "../../includes/cub3d.h"
+
 
 void	check_wall(t_all *all)
 {
@@ -26,7 +27,7 @@ void	check_wall(t_all *all)
 		if (all->str[i++][0] != '1')
 			ft_error(all);
 
-            
+
 	j = 0;
 	i = 0;
 	while (j < all->lenstr - 1)

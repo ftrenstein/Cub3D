@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/07 05:26:41 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/02/11 18:03:13 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct s_player
 	double	dir_y;
 	double	dir_z;
 	double	plane_x;
-	double	plane_y;	
+	double	plane_y;
 }			t_player;
 
 typedef struct s_ray
@@ -93,7 +93,7 @@ typedef struct s_params
 	void		*mlx_win;
 	t_img		img;
 	int			countlines;
-	int			part1;
+	int			count_par;
 	char		*nord;
 	char		*south;
 	char		*west;
@@ -109,21 +109,26 @@ typedef struct s_params
 	t_player	*player;
 }t_params;
 
+// parsing
 char	*get_next_line(int fd);
 char	*get_last_line(char *s, int i, char *res);
 int		ft_strlen(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *src);
 int		ft_strcmp(const char *s1, const char *s2);
+void	ft_clear(t_params *all);
 
-int		valid_main(t_params	*all);
-
+int		valid_main(char *path_map, t_params	*all);
 void	read_map(char *path_map, t_params *all);
-
 void	pars_params(t_params *all);
 
-void	ft_clear(t_params *all);
-int		begin_map(t_params	*all);
+void	ft_alloc_memory(t_params *all, char *texture, char **dir);
+void	separation(int	begin, t_params	*all);
+void	valid_texture(char *dir);
+void	texture_xpm(t_params *all);
+int my_free(t_params *all);
+
+
 
 // Vova tut nasral
 void	start_game(t_params *params);
