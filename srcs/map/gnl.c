@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   gnl.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:54 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/07 03:45:39 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/02/12 17:43:35 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,12 @@ char	*get_next_line(int fd)
 	i = 0;
 	res = "";
 	s[0] = 0;
-	while (read(fd, &s[i], 1) && i <= BUFFER_SIZE && BUFFER_SIZE > 0 && fd >= 0
+	if (read(fd, &s[i], 1) < 0)
+	{
+		printf("It is directory\n");
+		exit (1);
+	}
+	while (read(fd, &s[i], 1) > 0 && i <= BUFFER_SIZE && BUFFER_SIZE > 0 && fd >= 0
 		&& (fd < 100 || BUFFER_SIZE < 1000) && s[i] != 0)
 	{
 		if ((i + 1) == BUFFER_SIZE && s[i] != '\n' && s[i] != 0)

@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/11 18:03:13 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:24:05 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,16 +117,22 @@ char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strdup(char *src);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_clear(t_params *all);
+int		ft_isspace(int c);
+void	*ft_memset(void *b, int c, size_t len);
+
+
 
 int		valid_main(char *path_map, t_params	*all);
 void	read_map(char *path_map, t_params *all);
 void	pars_params(t_params *all);
 
 void	ft_alloc_memory(t_params *all, char *texture, char **dir);
+void ft_alloc_memory_col(t_params *all, char *color, char **dir);
+
 void	separation(int	begin, t_params	*all);
-void	valid_texture(char *dir);
+void	valid_texture(t_params *all, char *dir);
 void	texture_xpm(t_params *all);
-int my_free(t_params *all);
+void	my_free(t_params *all);
 
 
 

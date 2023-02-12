@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/11 16:06:53 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/12 18:07:01 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,12 @@ void	pars_params(t_params	*all)
 		}
 		else if (all->all_file[i][j] == 'F')
 		{
-			j += 2;
-			ft_alloc_memory(all, &all->all_file[i][j + 2],  &all->color_floor);
+			ft_alloc_memory_col(all, &all->all_file[i][j + 2],  &all->color_floor);
 			i++;
 		}
 		else if (all->all_file[i][j] == 'C')
 		{
-			j += 2;
-			ft_alloc_memory(all, &all->all_file[i][j + 2], &all->color_ceiling);
+			ft_alloc_memory_col(all, &all->all_file[i][j + 2], &all->color_ceiling);
 			i++;
 		}
 		else
@@ -72,15 +70,22 @@ int	ft_ending(char *path_map)
 	int	len = ft_strlen(path_map);
 	if (len <= 5)
 		return 1;
-	// printf("%d\n", ft_strcmp(path_map + len  - 4, cub));
+	printf("%s\n", path_map);
+
+	printf("%d\n", ft_strcmp(path_map + len  - 4, cub));
 	return(ft_strcmp(path_map + len  - 4, cub));
 }
 
 void		check_path(char *path_map)
 {
-	if (ft_ending(path_map) != 0 || open(path_map, O_RDONLY) < 0)
+	if (ft_ending(path_map) != 0)
 	{
-		printf("wrong path not have '.cub'");
+		printf("Error : Wrong path not have '.cub' \n");
+		exit(1);
+	}
+	if (open(path_map, O_RDONLY) < 0)
+	{
+		printf("Error : No such file or directory\n");
 		exit(1);
 	}
 }
@@ -114,7 +119,7 @@ void	read_map(char *path_map, t_params *all)
 	{
 		all->all_file[j++] = get_next_line(fd);
 	}
-	all->all_file[j] = NULL; // ??
+	all->all_file[j] = NULL;
 	close (fd);
 }
 
