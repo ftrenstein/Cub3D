@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/12 18:07:01 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:11:32 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	pars_params(t_params	*all)
 		}
 		else if (all->all_file[i][j] == 'C')
 		{
-			ft_alloc_memory_col(all, &all->all_file[i][j + 2], &all->color_ceiling);
+			ft_alloc_memory_col(all, &all->all_file[i][j + 2], &all->color_sky);
 			i++;
 		}
 		else

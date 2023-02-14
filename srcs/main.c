@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:02:07 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/12 15:32:42 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:11:32 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	my_free(t_params *all)
 	free(all->east);
 	free(all->textures);
 	free(all->color_floor);
-	free(all->color_ceiling);
+	free(all->color_sky);
 	while (*all->all_file)
 		free(all->all_file);
 	while (*all->map)

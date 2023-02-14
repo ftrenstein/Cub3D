@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   draw.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:02:02 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/07 03:42:14 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:11:32 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-static void	draw_ceiling_and_floor(t_params *params)
+static void	draw_sky_and_floor(t_params *params)
 {
 	unsigned int	*dst;
 	unsigned int	i;
@@ -84,7 +84,7 @@ void	ft_draw(t_params *params)
 	params->img.addr = mlx_get_data_addr(params->img.img,
 			&params->img.bits_per_pixel,
 			&params->img.line_length, &params->img.endian);
-	draw_ceiling_and_floor(params);
+	draw_sky_and_floor(params);
 	ray_casting(params);
 	mini_map(params);
 	mlx_put_image_to_window(params->mlx,

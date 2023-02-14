@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:53:34 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/12 17:40:33 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:15:51 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,19 @@ void ft_alloc_memory(t_params *all, char *texture, char **dir)
 	valid_texture(all, *dir);
 }
 
+int		valid_color(t_params	*all, char *color)
+{
+	int fd;
+	printf("%s\n", color);
+	fd = 0;
+	int i = 0;
+	while (*color)
+	{
+		if (color[i] == ',')
+			
+	}
+
+}
 void ft_alloc_memory_col(t_params *all, char *color, char **dir)
 {
 	printf("COLOR1: %s", color);

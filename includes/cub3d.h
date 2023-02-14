@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/12 15:24:05 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:12:02 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,13 +100,21 @@ typedef struct s_params
 	char		*east;
 	t_img		textures[4];
 	char		*color_floor;
-	char		*color_ceiling;
+	char		*color_sky;
 	char		**all_file;
 	char		**map;
 	int			txt_index;
 	double		texture_w;
 	t_move		move;
 	t_player	*player;
+
+	int			r_floor;
+	int			g_floor;
+	int			b_floor;
+	int			r_sky;
+	int			g_sky;
+	int			b_sky;
+
 }t_params;
 
 // parsing
