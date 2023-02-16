@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/14 16:12:02 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/16 22:23:10 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,8 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	ft_clear(t_params *all);
 int		ft_isspace(int c);
 void	*ft_memset(void *b, int c, size_t len);
+char	**ft_split(char	const *s, char c);
+
 
 
 
@@ -135,7 +137,7 @@ void	read_map(char *path_map, t_params *all);
 void	pars_params(t_params *all);
 
 void	ft_alloc_memory(t_params *all, char *texture, char **dir);
-void ft_alloc_memory_col(t_params *all, char *color, char **dir);
+void	ft_alloc_memory_col(t_params *all, char *color, char **dir);
 
 void	separation(int	begin, t_params	*all);
 void	valid_texture(t_params *all, char *dir);

@@ -6,22 +6,22 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:06:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/14 16:34:54 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/16 22:03:21 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 
-// int		ft_isspace(int c)
-// {
-// 	c = (unsigned char)c;
-// 	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
-// 		|| c == ' ')
-// 		return (1);
-// 	return (0);
-// }
+int		ft_isspace(int c)
+{
+	c = (unsigned char)c;
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r'
+		|| c == ' ')
+		return (1);
+	return (0);
+}
 
-//******************Part II******************//
+// ******************Part II******************//
 
 
 // Разбитие строки *s на
@@ -118,8 +118,6 @@ char	**ft_split(char	const *s, char c)
 		return (0);
 	words = words_counter(s, c);
 	printf("count words %d\n", words);
-	if (words != 4)
-		return (NULL);
 	arr = NULL;
 	arr = (char **)malloc(sizeof(char *) * (words + 1));
 	if (arr == NULL)
@@ -127,28 +125,28 @@ char	**ft_split(char	const *s, char c)
 	return (words_maker(s, arr, c, words));
 }
 
-int				main(void)
-{
-	char	**arr;
-	unsigned int	i;
+// int				main(void)
+// {
+// 	char	**arr;
+// 	unsigned int	i;
 
-	i = 0;
-	arr = ft_split("200,100,0", ',');
-	while (arr[i] != NULL)
-	{
+// 	i = 0;
+// 	arr = ft_split("200,  100,0", ',');
+// 	while (arr[i] != NULL)
+// 	{
 
-		printf("%s", arr[i]);
-        printf("%c", '\n');
-		i++;
-	}
-	i = 0;
-	// arr = ft_split("\0aa\0bbb", '\0');
-	// if (arr == 0)
-	// 	printf("%s\n", "null");
-	// while (arr[i] != NULL)
-	// {
-	// 	printf("%s", arr[i]);
-    //     printf("%c", '\n');
-	// 	i++;
-	// }
-}
+// 		printf("%s", arr[i]);
+//         printf("%c", '\n');
+// 		i++;
+// 	}
+// 	i = 0;
+// 	// arr = ft_split("\0aa\0bbb", '\0');
+// 	// if (arr == 0)
+// 	// 	printf("%s\n", "null");
+// 	// while (arr[i] != NULL)
+// 	// {
+// 	// 	printf("%s", arr[i]);
+//     //     printf("%c", '\n');
+// 	// 	i++;
+// 	// }
+// }

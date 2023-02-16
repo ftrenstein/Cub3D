@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/14 16:11:32 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/16 22:19:26 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,11 @@ void	pars_params(t_params	*all)
 	{
 		// if (!all->all_file[i])
 		// 	return ;
+		// printf("i = %d and j = %d\n", i,j);
+		// printf("sign = %c, %c\n", all->all_file[i][j], all->all_file[i][j + 1]);
 		if (all->all_file[i][j] == 'N' && all->all_file[i][j + 1] == 'O')
 		{
+			printf("first\n");
 			ft_alloc_memory(all, &all->all_file[i][j + 3], &all->nord);
 			i++;
 		}
@@ -34,6 +37,8 @@ void	pars_params(t_params	*all)
 		}
 		else if (all->all_file[i][j] == 'W' && all->all_file[i][j + 1] == 'E')
 		{
+			printf("threid\n");
+
 			ft_alloc_memory(all, &all->all_file[i][j + 3], &all->west);
 			i++;
 		}
@@ -72,7 +77,7 @@ int	ft_ending(char *path_map)
 		return 1;
 	printf("%s\n", path_map);
 
-	printf("%d\n", ft_strcmp(path_map + len  - 4, cub));
+	// printf("%d\n", ft_strcmp(path_map + len  - 4, cub));
 	return(ft_strcmp(path_map + len  - 4, cub));
 }
 
@@ -115,10 +120,15 @@ void	read_map(char *path_map, t_params *all)
 		ft_clear(all);
 	fd = open(path_map, O_RDONLY);
 	j = 0;
+	// all->all_file[j] = get_next_line(fd);
+
 	while (j < all->countlines)
 	{
-		all->all_file[j++] = get_next_line(fd);
+				printf("line - %s\n", get_next_line(fd));
+				j++;
+
 	}
+
 	all->all_file[j] = NULL;
 	close (fd);
 }
