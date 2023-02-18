@@ -10,7 +10,7 @@ RAY_CASTING	= ray_casting
 
 RENDERING	= draw mini_map
 
-MAP			= val_main val_texture gnl utils utils2
+MAP			= val_main val_texture val_color gnl utils utils2
 
 SRCS	= $(addsuffix .c, $(addprefix srcs/, $(MAIN))) \
 		  $(addsuffix .c, $(addprefix srcs/movement/, $(MOVEMENT))) \
@@ -24,7 +24,7 @@ MLX		= -Lmlx_linux -lmlx_Linux -L./mlx -Imlx_linux -lXext -lX11 -lm -lz  -g -o
 
 CC		= cc
 
-FLAGS	=  -Imlx -g -I includes/ -Wall -Wextra -Werror -fsanitize=address
+FLAGS	=  -Imlx -g -I includes/ -Wall -Wextra -Werror #-fsanitize=address
 
 all: $(NAME)
 
@@ -35,7 +35,7 @@ $(NAME): $(OBJ) $(HEADER)
 
 .c.o: $(HEDEAR)
 	$(CC) $(FLAGS)  -c $< -o $@
-	
+
 clean:
 	@rm -rf : $(OBJ)
 

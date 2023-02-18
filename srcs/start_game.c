@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:51:13 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/07 02:06:18 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/02/18 11:40:38 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,13 @@ static void	find_player(t_params *params)
 
 int	ft_exit(t_params *params)
 {
+	(void )params;
 	// free........
 	exit(0);
 }
 
 void	start_game(t_params *params)
-{	
+{
 	find_player(params);
 	mlx_loop_hook(params->mlx, &main_loop, params);
 	mlx_key_hook(params->mlx_win, &ft_key_up, params);

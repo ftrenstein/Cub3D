@@ -6,11 +6,11 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:45 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/10 18:47:26 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:27:40 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d.h"
+// #include "../../includes/cub3d.h"
 
 
 void	check_wall(t_all *all)

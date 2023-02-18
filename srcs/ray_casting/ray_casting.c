@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ray_casting.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/22 01:03:14 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/07 05:42:30 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/02/18 11:41:03 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ static double	get_distance(t_ray *ray, t_params *params, int side)
 double	ray(t_params *params, int i, double rayX, double rayY)
 {
 	t_ray	ray;
-	double	block_w;
+	// double	block_w; unused variable
 	double	perp_wall_dist;
 	int		side;
 	double	wall_x;

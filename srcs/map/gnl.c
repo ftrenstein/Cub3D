@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:54 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/12 17:43:35 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/18 12:26:34 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*get_next_line(int fd)
 	i = 0;
 	res = "";
 	s[0] = 0;
-	if (read(fd, &s[i], 1) < 0)
+	if (read(fd, &s[i], 0) < 0)
 	{
 		printf("It is directory\n");
 		exit (1);

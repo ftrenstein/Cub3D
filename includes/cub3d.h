@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/16 22:23:10 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/18 18:25:56 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,8 @@ typedef struct s_params
 	char		*west;
 	char		*east;
 	t_img		textures[4];
-	char		*color_floor;
-	char		*color_sky;
+	// char		*color_floor;
+	// char		*color_sky;
 	char		**all_file;
 	char		**map;
 	int			txt_index;
@@ -108,12 +108,8 @@ typedef struct s_params
 	t_move		move;
 	t_player	*player;
 
-	int			r_floor;
-	int			g_floor;
-	int			b_floor;
-	int			r_sky;
-	int			g_sky;
-	int			b_sky;
+	int			color_floor;
+	int			color_sky;
 
 }t_params;
 
@@ -136,11 +132,11 @@ int		valid_main(char *path_map, t_params	*all);
 void	read_map(char *path_map, t_params *all);
 void	pars_params(t_params *all);
 
-void	ft_alloc_memory(t_params *all, char *texture, char **dir);
-void	ft_alloc_memory_col(t_params *all, char *color, char **dir);
+int		ft_alloc_memory(t_params *all, char *texture, char **dir);
+int		ft_alloc_memory_color(t_params *all, char *color_str);
 
 void	separation(int	begin, t_params	*all);
-void	valid_texture(t_params *all, char *dir);
+int		valid_texture_path(t_params *all, char *dir);
 void	texture_xpm(t_params *all);
 void	my_free(t_params *all);
 
