@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 14:06:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/16 22:03:21 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:35:15 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ char	**ft_split(char	const *s, char c)
 	if (c == '\0' && !s)
 		return (0);
 	words = words_counter(s, c);
-	printf("count words %d\n", words);
+	// printf("count words %d\n", words);
 	arr = NULL;
 	arr = (char **)malloc(sizeof(char *) * (words + 1));
 	if (arr == NULL)

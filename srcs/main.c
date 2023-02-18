@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:02:07 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/16 22:22:26 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:33:53 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,11 @@ int main(int argc, char **argv)
 
 	valid_main(argv[1], &all);
 	int i = 0;
-	printf("...\n.....\n.......\nThe MAP is:\n\n");
+	// printf("...\n.....\n.......\nThe MAP is:\n\n");
 
 	while (all.map && all.map[i])
 	{
-		printf("%s", all.map[i]);
+		// printf("%s", all.map[i]);
 		i++;
 	}
 

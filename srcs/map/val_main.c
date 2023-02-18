@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/16 22:19:26 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/17 00:35:21 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	ft_ending(char *path_map)
 	int	len = ft_strlen(path_map);
 	if (len <= 5)
 		return 1;
-	printf("%s\n", path_map);
+	// printf("%s\n", path_map);
 
 	// printf("%d\n", ft_strcmp(path_map + len  - 4, cub));
 	return(ft_strcmp(path_map + len  - 4, cub));
@@ -124,7 +124,7 @@ void	read_map(char *path_map, t_params *all)
 
 	while (j < all->countlines)
 	{
-				printf("line - %s\n", get_next_line(fd));
+				// printf("line - %s\n", get_next_line(fd));
 				j++;
 
 	}

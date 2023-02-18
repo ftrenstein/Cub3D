@@ -24,16 +24,18 @@ MLX		= -Lmlx_linux -lmlx_Linux -L./mlx -Imlx_linux -lXext -lX11 -lm -lz  -g -o
 
 CC		= cc
 
-FLAGS	= -Wall -Wextra -Werror -Imlx -g -I includes/ #-fsanitize=address
+FLAGS	=  -Imlx -g -I includes/ -Wall -Wextra -Werror -fsanitize=address
 
 all: $(NAME)
 
-%.o: %.c $(HEDEAR)
-	$(CC) $(FLAGS) $(MLX) -c $< -o $@
+
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CC) $(OBJ) $(MLX) $(NAME)
+	$(CC) $(FLAGS) $(OBJ) $(MLX) $(NAME)
 
+.c.o: $(HEDEAR)
+	$(CC) $(FLAGS)  -c $< -o $@
+	
 clean:
 	@rm -rf : $(OBJ)
 
