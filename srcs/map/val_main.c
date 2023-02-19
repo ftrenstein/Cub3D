@@ -6,12 +6,11 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/18 18:55:52 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/19 17:58:06 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
 
 
 int	ft_ending(char *path_map)
@@ -71,39 +70,39 @@ void	read_map(char *path_map, t_params *all)
 }
 
 
-void	pars_params(t_params	*all)
+int	pars_params(t_params	*all)
 {
 	int		i;
 	int		j;
 
 	i = 0; //stroka
 	j = 0; //stolbik - bukva
-	while (i < all->countlines)
+	while ( all->count_par != 6)
 	{
 		// printf("line - %s\n", all->all_file[i]);
 		if (all->all_file[i][j] == 'N' && all->all_file[i][j + 1] == 'O')
 		{
-			ft_alloc_memory(all, &all->all_file[i][j + 3], &all->nord);
+			all->count_par += ft_alloc_memory(&all->all_file[i][j + 3], &all->nord);
 			i++;
 			printf("->nord -----%s\n", all->nord);
 		}
 		else if (all->all_file[i][j] == 'S' && all->all_file[i][j + 1] == 'O')
 		{
-			ft_alloc_memory(all, &all->all_file[i][j + 3], &all->south);
+			all->count_par += ft_alloc_memory(&all->all_file[i][j + 3], &all->south);
 			i++;
 			printf("->south -----%s\n", all->south);
 
 		}
 		else if (all->all_file[i][j] == 'W' && all->all_file[i][j + 1] == 'E')
 		{
-			ft_alloc_memory(all, &all->all_file[i][j + 3], &all->west);
+			all->count_par += ft_alloc_memory(&all->all_file[i][j + 3], &all->west);
 			i++;
 			printf("all->west -----%s\n", all->west);
 
 		}
 		else if (all->all_file[i][j] == 'E' && all->all_file[i][j + 1] == 'A')
 		{
-			ft_alloc_memory(all, &all->all_file[i][j + 3], &all->east);
+			all->count_par += ft_alloc_memory(&all->all_file[i][j + 3], &all->east);
 			i++;
 			printf("all->east -----%s\n", all->west);
 
@@ -123,19 +122,20 @@ void	pars_params(t_params	*all)
 		else
 			i++;
 	}
+	printf(" count line guess %d\n", i );
+	return (i);
 }
 
 int	valid_main(char *path_map, t_params	*all)
 {
 	check_path(path_map);
 	read_map(path_map, all);
-	pars_params(all);
-	// if (all->count_par == 6)
-	// {
-	// 	ft_find_map(all);
-	// 	separation(i, all);
-	// 	break;
-	// }
+	int i = pars_params(all);
+	printf("%d\n", all->count_par);
+	if (all->count_par == 6)
+	{
+		return (valid_map(i, all));
+	}
 	return 0;
 }
 

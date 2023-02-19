@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 16:21:36 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/18 18:52:58 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:37:23 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		valid_color(char *color_str)
 		else
 			return(0);
 	}
+	
 	return(rgb);
 }
 

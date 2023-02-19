@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/18 18:25:56 by renstein         ###   ########.fr       */
+/*   Updated: 2023/02/19 16:57:11 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,16 +130,18 @@ char	**ft_split(char	const *s, char c);
 
 int		valid_main(char *path_map, t_params	*all);
 void	read_map(char *path_map, t_params *all);
-void	pars_params(t_params *all);
+int		pars_params(t_params *all);
 
-int		ft_alloc_memory(t_params *all, char *texture, char **dir);
+int		ft_alloc_memory(char *texture, char **dir);
 int		ft_alloc_memory_color(t_params *all, char *color_str);
 
-void	separation(int	begin, t_params	*all);
-int		valid_texture_path(t_params *all, char *dir);
+int		valid_texture_path(char *dir);
 void	texture_xpm(t_params *all);
 void	my_free(t_params *all);
 
+char**		ft_find_begin(int i, char **all_file);
+int	valid_map(int i, t_params *all);
+void separation(int begin, t_params *all);
 
 
 // Vova tut nasral

@@ -10,7 +10,7 @@ RAY_CASTING	= ray_casting
 
 RENDERING	= draw mini_map
 
-MAP			= val_main val_texture val_color gnl utils utils2
+MAP			= val_main val_texture val_color val_map gnl utils utils2
 
 SRCS	= $(addsuffix .c, $(addprefix srcs/, $(MAIN))) \
 		  $(addsuffix .c, $(addprefix srcs/movement/, $(MOVEMENT))) \
