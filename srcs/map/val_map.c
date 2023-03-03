@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:45 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/19 18:04:58 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:56:05 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,10 @@ int 	check_wall(char **map)
 	printf("\t MAPA \t \n");
 
 	int i = 0;
-	while (map)
+	while (map[i])
 	{
 		printf("\t %s\n", map[i]);
+		i++;
 	}
 	return (0);
 }

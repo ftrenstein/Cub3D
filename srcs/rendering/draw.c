@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:02:02 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/18 11:41:40 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:49:44 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ void	ft_line(t_params *params, int i, double dist)
 {
 	unsigned int	*src;
 	int				h;
-	float			src_f;
+	// float			src_f;
 	// int				start; unused variable
 
 	h = WINDOW_H / dist;
-	src_f = 0.0f;
+	// src_f = 0.0f;
 	src = (unsigned int *)params->textures[params->txt_index].addr;
 	src += (int)(params->texture_w * params->textures[params->txt_index].width);
 	ft_line2(params, i, h, src);

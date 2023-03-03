@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:02:07 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/18 18:06:26 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/02 20:04:45 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int main(int argc, char **argv)
 		// printf("%s", all.map[i]);
 		i++;
 	}
-
 	// valid_map(&all);
 
 	// Vova tut nasral

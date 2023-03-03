@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/19 17:58:06 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/02 19:50:02 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ void	read_map(char *path_map, t_params *all)
 {
 	int		j;
 	int		fd;
-	int		i;
+	// int		i;
 	char	*s;
 
 	all->countlines = 0;
-	i = 0;
+	// i = 0;
 	fd = open(path_map, O_RDONLY);
 	s = get_next_line(fd);
 	while (s)
