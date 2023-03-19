@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/19 16:57:11 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/13 23:03:32 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 # define KEY_DOWN 65364
 # define KEY_ESC 65307
 
-# define ROTATION_SPEED 0.03f
-# define MOVE_SPEED 0.03f
+# define ROTATION_SPEED 0.02f
+# define MOVE_SPEED 0.02f
 
 typedef struct s_player
 {
