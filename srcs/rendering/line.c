@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:05:06 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/13 12:05:52 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/19 21:05:44 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	ft_line2(t_params *params, int i, int h, unsigned int *sr)
 	dst = (unsigned int *)params->img.addr + i + start * WINDOW_W;
 	while (h-- > 0)
 	{
-		//*dst = *(sr + ((int)src_f) * params->textures[params->txt_index].width);
-		(void)sr;
-		*dst = 100;
+		*dst = *(sr + ((int)src_f) * params->textures[params->txt_index].width);
+		// (void)sr;
+		// *dst = 100;
 		dst += WINDOW_W;
 		src_f += d_shift;
 	}

@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/19 20:55:44 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/19 21:03:41 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,8 +99,6 @@ typedef struct s_params
 	char		*west;
 	char		*east;
 	t_img		textures[4];
-	// char		*color_floor;
-	// char		*color_sky;
 	char		**all_file;
 	char		**map;
 	int			txt_index;

@@ -6,24 +6,24 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:53:34 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/19 20:18:42 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/19 21:02:56 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
 #include <ctype.h>
 
-// void texture_xpm(t_params *all)
-// {
-// 	all->textures[1].img = mlx_xpm_file_to_image(all->mlx, all->nord, &all->textures[1].width, &all->textures[1].height);
-// 	all->textures[1].addr = mlx_get_data_addr(all->textures[1].img, &all->textures[1].bits_per_pixel, &all->textures[1].line_length, &all->textures[1].endian);
-// 	all->textures[2].img = mlx_xpm_file_to_image(all->mlx, all->east, &all->textures[2].width, &all->textures[2].height);
-// 	all->textures[2].addr = mlx_get_data_addr(all->textures[2].img, &all->textures[2].bits_per_pixel, &all->textures[2].line_length, &all->textures[2].endian);
-// 	all->textures[3].img = mlx_xpm_file_to_image(all->mlx, all->south, &all->textures[3].width, &all->textures[3].height);
-// 	all->textures[3].addr = mlx_get_data_addr(all->textures[3].img, &all->textures[3].bits_per_pixel, &all->textures[3].line_length, &all->textures[3].endian);
-// 	all->textures[0].img = mlx_xpm_file_to_image(all->mlx, all->west, &all->textures[0].width, &all->textures[0].height);
-// 	all->textures[0].addr = mlx_get_data_addr(all->textures[0].img, &all->textures[0].bits_per_pixel, &all->textures[0].line_length, &all->textures[0].endian);
-// }
+void texture_xpm(t_params *all)
+{
+	all->textures[1].img = mlx_xpm_file_to_image(all->mlx, all->nord, &all->textures[1].width, &all->textures[1].height);
+	all->textures[1].addr = mlx_get_data_addr(all->textures[1].img, &all->textures[1].bits_per_pixel, &all->textures[1].line_length, &all->textures[1].endian);
+	all->textures[2].img = mlx_xpm_file_to_image(all->mlx, all->east, &all->textures[2].width, &all->textures[2].height);
+	all->textures[2].addr = mlx_get_data_addr(all->textures[2].img, &all->textures[2].bits_per_pixel, &all->textures[2].line_length, &all->textures[2].endian);
+	all->textures[3].img = mlx_xpm_file_to_image(all->mlx, all->south, &all->textures[3].width, &all->textures[3].height);
+	all->textures[3].addr = mlx_get_data_addr(all->textures[3].img, &all->textures[3].bits_per_pixel, &all->textures[3].line_length, &all->textures[3].endian);
+	all->textures[0].img = mlx_xpm_file_to_image(all->mlx, all->west, &all->textures[0].width, &all->textures[0].height);
+	all->textures[0].addr = mlx_get_data_addr(all->textures[0].img, &all->textures[0].bits_per_pixel, &all->textures[0].line_length, &all->textures[0].endian);
+}
 
 int valid_texture_path(char *dir)
 {
