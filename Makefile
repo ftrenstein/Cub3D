@@ -10,7 +10,7 @@ RAY_CASTING	= ray_casting
 
 RENDERING	= draw mini_map line
 
-MAP			= val_main val_texture val_color val_map gnl utils utils2
+MAP			= val_main val_texture val_color val_map gnl utils utils2 errors
 
 SRCS	= $(addsuffix .c, $(addprefix srcs/, $(MAIN))) \
 		  $(addsuffix .c, $(addprefix srcs/movement/, $(MOVEMENT))) \
@@ -39,11 +39,11 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	
+
 re: fclean all
 
-test: re 
-	@make clean	
+test: re
+	@make clean
 	@clear
 
 .PHONY : all clean fclean re

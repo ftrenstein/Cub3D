@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/02 19:50:02 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/19 20:38:49 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,8 @@ int	pars_params(t_params	*all)
 
 	i = 0; //stroka
 	j = 0; //stolbik - bukva
-	while ( all->count_par != 6)
+	while (all->count_par != 6)
 	{
-		// printf("line - %s\n", all->all_file[i]);
 		if (all->all_file[i][j] == 'N' && all->all_file[i][j + 1] == 'O')
 		{
 			all->count_par += ft_alloc_memory(&all->all_file[i][j + 3], &all->nord);
@@ -118,7 +117,11 @@ int	pars_params(t_params	*all)
 			all->color_sky = ft_alloc_memory_color(all, &all->all_file[i][j + 2]);
 			i++;
 			printf("color sky %d\n", all->color_sky);
+			if (all->color_floor == all->color_sky)
+				ft_error(1);
 		}
+		else if (all->all_file[i][j] != '\n')
+			ft_error(4);
 		else
 			i++;
 	}
@@ -131,11 +134,13 @@ int	valid_main(char *path_map, t_params	*all)
 	check_path(path_map);
 	read_map(path_map, all);
 	int i = pars_params(all);
+	// texture_xpm(all);
+
 	printf("%d\n", all->count_par);
 	if (all->count_par == 6)
-	{
 		return (valid_map(i, all));
-	}
+	else
+		ft_error(3);
 	return 0;
 }
 
