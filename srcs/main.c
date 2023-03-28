@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:02:07 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/19 21:04:44 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/26 01:47:00 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int main(int argc, char **argv)
 	texture_xpm(&all);
 
 	//Vova tut nasral
-
 	all.move.up = 0;
 	all.move.down = 0;
 	all.move.left = 0;
@@ -50,6 +49,7 @@ int main(int argc, char **argv)
 	all.move.rot_right = 0;
 	all.move.rot_up = 0;
 	all.move.rot_down = 0;
+	all.show_map = 0;
 	all.player = (t_player *)malloc(sizeof(t_player));
 	if (!all.player)
 		ft_exit(&all);

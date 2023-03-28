@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 23:02:02 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/13 12:05:41 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/26 00:55:17 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void	ft_draw(t_params *params)
 			&params->img.line_length, &params->img.endian);
 	draw_sky_and_floor(params);
 	ray_casting(params);
-	mini_map(params);
+	if (params->show_map)
+		mini_map(params);
 	mlx_put_image_to_window(params->mlx,
 		params->mlx_win, params->img.img, 0, 0);
 	mlx_destroy_image(params->mlx, params->img.img);

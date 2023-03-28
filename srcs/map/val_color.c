@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   val_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 16:21:36 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/02 19:50:34 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/25 20:05:03 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,10 @@ int		valid_color(char *color_str)
 		else
 			return(0);
 	}
-	
+	i = 0;
+	while (arr[i])
+		free(arr[i++]);
+	free(arr);
 	return(rgb);
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/19 21:03:41 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/26 04:20:48 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # define WINDOW_W 1080
 # define WINDOW_H 720
 
+# define KEY_M 109
 # define KEY_W 119
 # define KEY_A 97
 # define KEY_S 115
@@ -35,8 +36,8 @@
 # define KEY_DOWN 65364
 # define KEY_ESC 65307
 
-# define ROTATION_SPEED 0.02f
-# define MOVE_SPEED 0.02f
+# define ROTATION_SPEED 0.025f
+# define MOVE_SPEED 0.03f
 
 typedef struct s_player
 {
@@ -105,7 +106,7 @@ typedef struct s_params
 	double		texture_w;
 	t_move		move;
 	t_player	*player;
-
+	int			show_map;
 	int			color_floor;
 	int			color_sky;
 
@@ -123,9 +124,6 @@ int		ft_isspace(int c);
 void	*ft_memset(void *b, int c, size_t len);
 char	**ft_split(char	const *s, char c);
 
-
-
-
 int		valid_main(char *path_map, t_params	*all);
 void	read_map(char *path_map, t_params *all);
 int		pars_params(t_params *all);
@@ -139,9 +137,8 @@ void	texture_xpm(t_params *all);
 void	my_free(t_params *all);
 void	ft_error(int num);
 
-char**		ft_find_begin(int i, char **all_file);
-int			valid_map(int i, t_params *all);
-
+char	**ft_find_begin(int i, char **all_file);
+int		valid_map(int i, t_params *all);
 
 // Vova tut nasral
 void	start_game(t_params *params);
@@ -154,6 +151,9 @@ int		ft_exit(t_params *params);
 int		ft_key_up(int key, t_params *params);
 int		main_loop(t_params *params);
 double	ray(t_params *params, int i, double rayX, double rayY);
+void	move(t_params *params, double *vec);
+double	*get_dir(t_params *params);
+void	rotate(t_params *params, int dir);
 
 // int		moveplayer(t_all	*all);
 // void	ft_clear(t_all *all);

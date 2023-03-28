@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   start_game.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 21:51:13 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/18 11:40:38 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/26 04:24:41 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,8 @@ static int	is_player(char c)
 	return (0);
 }
 
-static void	find_player(t_params *params)
+static void	find_player(t_params *params, int i, int j)
 {
-	int	i;
-	int	j;
-
-	i = 0;
 	while (params->map[i])
 	{
 		j = 0;
@@ -60,17 +56,16 @@ static void	find_player(t_params *params)
 
 int	ft_exit(t_params *params)
 {
-	(void )params;
-	// free........
+	my_free(params);
 	exit(0);
 }
 
 void	start_game(t_params *params)
 {
-	find_player(params);
+	find_player(params, 0, 0);
 	mlx_loop_hook(params->mlx, &main_loop, params);
-	mlx_key_hook(params->mlx_win, &ft_key_up, params);
-	mlx_hook(params->mlx_win, 2, 1L, &ft_key_down, params);
+	mlx_hook(params->mlx_win, 2, 1L << 0, &ft_key_down, params);
+	mlx_hook(params->mlx_win, 3, 2L << 0, &ft_key_up, params);
 	mlx_hook(params->mlx_win, 17, 0L, ft_exit, params);
 	mlx_loop(params->mlx);
 }

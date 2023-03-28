@@ -4,9 +4,9 @@ HEDEAR	= includes/cub3d.h
 
 MAIN		= main start_game
 
-MOVEMENT	= keys
+MOVEMENT	= keys move
 
-RAY_CASTING	= ray_casting
+RAY_CASTING	= ray_casting ray
 
 RENDERING	= draw mini_map line
 
