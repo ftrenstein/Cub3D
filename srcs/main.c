@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:02:07 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/26 01:47:00 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/29 21:46:28 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int main(int argc, char **argv)
 {
 	t_params all;
+	all.player = (t_player *)malloc(sizeof(t_player));
+	all.player->pos_x = -1;
 
 	ft_memset(&all, 0, sizeof(all));
 
@@ -50,7 +52,6 @@ int main(int argc, char **argv)
 	all.move.rot_up = 0;
 	all.move.rot_down = 0;
 	all.show_map = 0;
-	all.player = (t_player *)malloc(sizeof(t_player));
 	if (!all.player)
 		ft_exit(&all);
 	all.player->dir_z = 0;
