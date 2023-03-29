@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/28 17:32:19 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:06:36 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,7 +140,7 @@ int	valid_main(char *path_map, t_params	*all)
 	if (all->count_par == 6)
 		return (valid_map(i, all));
 	else
-		ft_error(3);
+		ft_error(4);
 	return 0;
 }
 

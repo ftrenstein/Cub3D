@@ -8,11 +8,9 @@ MOVEMENT	= keys move
 
 RAY_CASTING	= ray_casting ray
 
-RENDERING	= draw line
+RENDERING	= draw line mini_map
 
 MAP			= val_main val_texture val_color val_map gnl utils utils2 errors
-
-MINI_MAP	= mini_map
 
 SRCS	= $(addsuffix .c, $(addprefix srcs/, $(MAIN))) \
 		  $(addsuffix .c, $(addprefix srcs/movement/, $(MOVEMENT))) \

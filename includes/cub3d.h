@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/26 04:20:48 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/29 20:02:48 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ typedef struct s_params
 	t_img		textures[4];
 	char		**all_file;
 	char		**map;
+	char		**map_start;
+
 	int			txt_index;
 	double		texture_w;
 	t_move		move;
@@ -139,6 +141,8 @@ void	ft_error(int num);
 
 char	**ft_find_begin(int i, char **all_file);
 int		valid_map(int i, t_params *all);
+int		ft_make_rectangle(t_params *all);
+
 
 // Vova tut nasral
 void	start_game(t_params *params);
