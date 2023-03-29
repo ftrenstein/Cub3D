@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   val_main.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/23 04:36:40 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/28 17:32:19 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ int	pars_params(t_params	*all)
 				ft_error(1);
 		}
 		else if (all->all_file[i][j] != '\n')
-			ft_error(4);
+			ft_error(3);
 		else
 			i++;
 	}
