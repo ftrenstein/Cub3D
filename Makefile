@@ -10,7 +10,7 @@ RAY_CASTING	= ray_casting ray
 
 RENDERING	= draw line
 
-MAP			= val_main val_texture val_color val_map gnl utils utils2 errors
+MAP			= val_main val_texture val_color val_map gnl utils utils2 errors player
 
 MINI_MAP = mini_map
 
@@ -45,7 +45,7 @@ $(NAME):	$(OBJ) $(HEADER)
 	$(CC) $(OBJ) -o $(NAME) $(MLX)
 
 %.o : %.c	$(HEADER)
-	$(CC) $(CFLAGC) -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ) $(OBJ_BONUS)

@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/29 23:12:59 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/30 13:57:23 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,14 +135,15 @@ int		valid_texture_path(char *dir);
 void	texture_xpm(t_params *all);
 
 void	my_free(t_params *all);
-void	ft_error(int num);
+void	ft_error(int num, char *s);
 
 char	**ft_find_begin(int i, char **all_file);
 int		valid_map(int i, t_params *all);
 int		ft_make_rectangle(t_params *all);
+void	set_player_position(t_params *params, int i, int j);
+int		is_player(char c);
+int		ft_ending(char *path_map);
 
-
-// Vova tut nasral
 void	start_game(t_params *params);
 void	ft_draw(t_params *params);
 void	ray_casting(t_params *params);
@@ -155,19 +156,5 @@ double	ray(t_params *params, int i, double rayX, double rayY);
 void	move(t_params *params, double *vec);
 double	*get_dir(t_params *params);
 void	rotate(t_params *params, int dir);
-
-// int		moveplayer(t_all	*all);
-// void	ft_clear(t_all *all);
-// void	valid_map(t_all *all);
-// void	check_wall(t_all *all);
-// void	check_form(t_all *all);
-// void	check_main(t_all *all);
-// void	ft_error(t_all *all);
-// void	ft_exit(t_all *all);
-// int		quit(void);
-// int		ft_key(int key, t_all	*all);
-// void	read_map(char *map, t_all *all);
-// void	get_images(t_all *all);
-// void	paint_map(t_all *all);
 
 #endif

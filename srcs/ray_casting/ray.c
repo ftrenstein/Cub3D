@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:26:27 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/30 00:35:55 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/30 12:51:05 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,8 +89,7 @@ static int	move_ray(t_ray *ray, t_params *params)
 			ray->map_y += ray->step_y;
 			side = 1;
 		}
-		if (ray->map_y < 0 || ray->map_x < 0
-			|| ray->map_y >= params->map_height
+		if (ray->map_y < 0 || ray->map_x < 0 || ray->map_y >= params->map_height
 			|| ray->map_x >= params->map_width
 			|| params->map[ray->map_y][ray->map_x] == '1')
 			hit = 1;

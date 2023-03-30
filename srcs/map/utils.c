@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 23:24:49 by renstein          #+#    #+#             */
-/*   Updated: 2023/02/12 14:05:46 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/30 01:52:42 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3d.h"
-
 
 void	*ft_memset(void *b, int c, size_t len)
 {
@@ -22,7 +21,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	ptr = (unsigned char *)b;
 	while (i < len)
 		ptr[i++] = (unsigned char)c;
-	return(b);
+	return (b);
 }
 
 int	ft_strcmp(const char *s1, const char *s2)
