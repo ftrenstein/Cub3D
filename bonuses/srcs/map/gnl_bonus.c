@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:54 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/29 00:28:17 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/30 14:10:20 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,28 @@ char	*get_last_line(char *s, int i, char *res)
 	return (NULL);
 }
 
+int	read_string(int fd, char *s, int *i, char **res)
+{
+	while (read(fd, &s[*i], 1) > 0 && *i <= BUFFER_SIZE && BUFFER_SIZE > 0
+		&& fd >= 0 && (fd < 100 || BUFFER_SIZE < 1000) && s[*i] != 0)
+	{
+		if ((*i + 1) == BUFFER_SIZE && s[*i] != '\n' && s[*i] != 0)
+		{
+			s[*i + 1] = 0;
+			*res = ft_strjoin(*res, s);
+			*i = -1;
+		}
+		if (s[*i] == '\n')
+		{
+			s[*i + 1] = 0;
+			*res = ft_strjoin(*res, s);
+			return (1);
+		}
+		(*i)++;
+	}
+	return (0);
+}
+
 char	*get_next_line(int fd)
 {
 	static char	s[BUFFER_SIZE + 1];
@@ -75,22 +97,7 @@ char	*get_next_line(int fd)
 		printf("It is directory\n");
 		exit (1);
 	}
-	while (read(fd, &s[i], 1) > 0 && i <= BUFFER_SIZE && BUFFER_SIZE > 0 && fd >= 0
-		&& (fd < 100 || BUFFER_SIZE < 1000) && s[i] != 0)
-	{
-		if ((i + 1) == BUFFER_SIZE && s[i] != '\n' && s[i] != 0)
-		{
-			s[i + 1] = 0;
-			res = ft_strjoin(res, s);
-			i = -1;
-		}
-		if (s[i] == '\n')
-		{
-			s[i + 1] = 0;
-			res = ft_strjoin(res, s);
-			return (res);
-		}
-		i++;
-	}
+	if (read_string(fd, s, &i, &res))
+		return (res);
 	return (get_last_line(s, i, res));
 }

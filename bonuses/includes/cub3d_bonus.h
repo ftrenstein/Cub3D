@@ -6,16 +6,16 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/29 00:29:22 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/30 14:21:07 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "../../mlx/mlx.h"
+# include "../mlx/mlx.h"
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
@@ -102,6 +102,10 @@ typedef struct s_params
 	t_img		textures[4];
 	char		**all_file;
 	char		**map;
+	char		**map_start;
+	int			map_width;
+	int			map_height;
+
 	int			txt_index;
 	double		texture_w;
 	t_move		move;
@@ -135,12 +139,15 @@ int		valid_texture_path(char *dir);
 void	texture_xpm(t_params *all);
 
 void	my_free(t_params *all);
-void	ft_error(int num);
+void	ft_error(int num, char *s);
 
 char	**ft_find_begin(int i, char **all_file);
 int		valid_map(int i, t_params *all);
+int		ft_make_rectangle(t_params *all);
+void	set_player_position(t_params *params, int i, int j);
+int		is_player(char c);
+int		ft_ending(char *path_map);
 
-// Vova tut nasral
 void	start_game(t_params *params);
 void	ft_draw(t_params *params);
 void	mini_map(t_params *params);
@@ -154,19 +161,5 @@ double	ray(t_params *params, int i, double rayX, double rayY);
 void	move(t_params *params, double *vec);
 double	*get_dir(t_params *params);
 void	rotate(t_params *params, int dir);
-
-// int		moveplayer(t_all	*all);
-// void	ft_clear(t_all *all);
-// void	valid_map(t_all *all);
-// void	check_wall(t_all *all);
-// void	check_form(t_all *all);
-// void	check_main(t_all *all);
-// void	ft_error(t_all *all);
-// void	ft_exit(t_all *all);
-// int		quit(void);
-// int		ft_key(int key, t_all	*all);
-// void	read_map(char *map, t_all *all);
-// void	get_images(t_all *all);
-// void	paint_map(t_all *all);
 
 #endif

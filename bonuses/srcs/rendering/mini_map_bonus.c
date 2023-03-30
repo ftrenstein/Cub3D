@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 03:11:58 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/29 21:17:08 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/30 14:20:04 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	mini_map(t_params *params)
 	i = 0;
 	map_scale = 7;
 	dst = (unsigned int *)params->img.addr;
-	while (params->map[i / map_scale])
+	while (i / map_scale < params->map_height)
 	{
 		j = 0;
 		while (params->map[i / map_scale][j]
