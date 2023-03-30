@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 12:05:06 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/24 17:07:26 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:56:17 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_line2(t_params *params, int i, int h, unsigned int *sr)
 
 	src_f = 0.0f;
 	d_shift = (float)params->textures[params->txt_index].height / h;
-	start = ((WINDOW_H - h) / 2 - (int)params->player->dir_z);
+	start = (WINDOW_H - h) / 2;
 	if (start < 0)
 	{
 		h += start;

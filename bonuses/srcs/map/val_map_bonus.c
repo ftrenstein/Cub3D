@@ -6,11 +6,11 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:45 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/29 00:28:28 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:23:56 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d_bonus.h"
+#include "../../../includes/cub3d.h"
 
 
 char**	ft_find_begin(int i, char **all_file)
@@ -20,28 +20,34 @@ char**	ft_find_begin(int i, char **all_file)
 	while (all_file[i])
 	{
 		j = 0;
-		while ((ft_isspace(all_file[i][j]) \
-							|| all_file[i][j] == '1' || all_file[i][j] == '0') )
-		{
-			if (all_file[i][j] == '1' || all_file[i][j] == '0' )
-				return(&all_file[i]);
-			else if (all_file[i][j] != '\n')
-				ft_error(4);
+		while (ft_isspace(all_file[i][j]))
 			j++;
-		}
+		if (all_file[i][j] != '\0')
+			return (&all_file[i]);
 		i++;
 	}
 	return ((char**)0);
 }
 
 
-int 	check_wall(char **map)
+int 	check_map(char **map)
 {
 	printf("\t MAPA \t \n");
 
 	int i = 0;
 	while (map[i])
 	{
+		int j = 0;
+		while (map[i][j])
+		{
+			if (map[i][j] != '1' && map[i][j] != '0' && map[i][j] != 'N' && map[i][j] != 'S' \
+				&& map[i][j] != 'W' && map[i][j] != 'E' && !ft_isspace(map[i][j]))
+				ft_error(6); //map_contain wrong simbol
+			j++;
+		}
+		if (map[i][0] == '\n')
+			ft_error(7);
+
 		printf("\t %s\n", map[i]);
 		i++;
 	}
@@ -54,7 +60,9 @@ int 	check_wall(char **map)
 int	valid_map(int i, t_params *all)
 {
 	all->map = ft_find_begin(i+1, all->all_file);
-	check_wall(all->map);
-	// printf("%s\n", &map);
+	if(all->map == 0)
+		ft_error(5);
+	check_map(all->map);
+
 	return (0);
 }

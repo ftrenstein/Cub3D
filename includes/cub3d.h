@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/29 20:02:48 by renstein         ###   ########.fr       */
+/*   Updated: 2023/03/29 23:12:59 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_player
 	double	pos_y;
 	double	dir_x;
 	double	dir_y;
-	double	dir_z;
 	double	plane_x;
 	double	plane_y;
 }			t_player;
@@ -84,8 +83,6 @@ typedef struct s_move
 	int	right;
 	int	rot_right;
 	int	rot_left;
-	int	rot_up;
-	int	rot_down;
 }		t_move;
 
 typedef struct s_params
@@ -103,12 +100,13 @@ typedef struct s_params
 	char		**all_file;
 	char		**map;
 	char		**map_start;
+	int			map_width;
+	int			map_height;
 
 	int			txt_index;
 	double		texture_w;
 	t_move		move;
 	t_player	*player;
-	int			show_map;
 	int			color_floor;
 	int			color_sky;
 
@@ -147,7 +145,6 @@ int		ft_make_rectangle(t_params *all);
 // Vova tut nasral
 void	start_game(t_params *params);
 void	ft_draw(t_params *params);
-void	mini_map(t_params *params);
 void	ray_casting(t_params *params);
 void	ft_line(t_params *params, int i, double dist);
 int		ft_key_down(int key, t_params *params);

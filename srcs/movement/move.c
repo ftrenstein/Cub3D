@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:19:11 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/26 16:43:39 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/30 00:36:21 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,6 @@ void	rotate(t_params *params, int dir)
 	params->player->plane_y = old_plane_x
 		* sin(ROTATION_SPEED * dir) + params->player->plane_y
 		* cos(ROTATION_SPEED * dir);
-}
-
-static int	near_wall(double x, double y, char **map)
-{
-	if (map[(int)y][(int)x] == '1')
-		return (1);
-	if (map[(int)(y + 0.1f)][(int)x] == '1')
-		return (1);
-	if (map[(int)(y - 0.1f)][(int)x] == '1')
-		return (1);
-	if (map[(int)y][(int)(x + 0.1f)] == '1')
-		return (1);
-	if (map[(int)y][(int)(x - 0.1f)] == '1')
-		return (1);
-	if (map[(int)(y + sqrt(0.02f))][(int)(x + sqrt(0.02f))] == '1')
-		return (1);
-	if (map[(int)(y + sqrt(0.02f))][(int)(x - sqrt(0.02f))] == '1')
-		return (1);
-	if (map[(int)(y - sqrt(0.02f))][(int)(x + sqrt(0.02f))] == '1')
-		return (1);
-	if (map[(int)(y - sqrt(0.02f))][(int)(x - sqrt(0.02f))] == '1')
-		return (1);
-	return (0);
 }
 
 static double	get_dir2(t_params *params, int up)
@@ -113,11 +90,11 @@ void	move(t_params *params, double *vec)
 	dx = vec[0] * MOVE_SPEED;
 	dy = vec[1] * MOVE_SPEED;
 	free(vec);
-	if (near_wall(params->player->pos_x + dx,
-			params->player->pos_y, params->map))
+	if (params->player->pos_x + dx < 0
+		|| params->player->pos_x + dx >= params->map_width)
 		dx = 0;
-	if (near_wall(params->player->pos_x,
-			params->player->pos_y + dy, params->map))
+	if (params->player->pos_y + dy < 0
+		|| params->player->pos_y + dy >= params->map_height)
 		dy = 0;
 	params->player->pos_x += dx;
 	params->player->pos_y += dy;

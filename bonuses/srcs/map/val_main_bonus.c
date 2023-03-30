@@ -6,11 +6,11 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/29 00:28:26 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:23:43 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d_bonus.h"
+#include "../../../includes/cub3d.h"
 
 
 int	ft_ending(char *path_map)
@@ -121,7 +121,7 @@ int	pars_params(t_params	*all)
 				ft_error(1);
 		}
 		else if (all->all_file[i][j] != '\n')
-			ft_error(4);
+			ft_error(3);
 		else
 			i++;
 	}

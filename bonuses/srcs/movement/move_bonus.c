@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/26 04:19:11 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/29 00:28:41 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/29 12:49:40 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,9 @@ void	move(t_params *params, double *vec)
 	if (near_wall(params->player->pos_x,
 			params->player->pos_y + dy, params->map))
 		dy = 0;
+	if (dx && dy && near_wall(params->player->pos_x + dx,
+			params->player->pos_y + dy, params->map))
+		dx = 0;
 	params->player->pos_x += dx;
 	params->player->pos_y += dy;
 }
