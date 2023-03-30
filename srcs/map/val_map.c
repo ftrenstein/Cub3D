@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   val_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:41:58 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/30 13:53:03 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/03/30 16:32:49 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int	check_map(char **map_start, t_params *params)
 					&& !ft_isspace(map_start[i][j]))
 				ft_error(6, NULL);
 			if (is_player(map_start[i][j]))
+			{
+				ft_check_wall(map_start, i, j);
 				set_player_position(params, i, j);
+			}
 			j++;
 		}
 		if (map_start[i][0] == '\n')
@@ -106,5 +109,6 @@ int	valid_map(int i, t_params *all)
 		ft_error(5, NULL);
 	check_map(all->map_start, all);
 	ft_make_rectangle(all);
+	ft_check_wall(all);
 	return (0);
 }
