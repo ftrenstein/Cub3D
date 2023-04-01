@@ -10,7 +10,7 @@ RAY_CASTING	= ray_casting ray
 
 RENDERING	= draw line
 
-MAP			= val_main val_texture val_color val_map gnl utils utils2 errors player
+MAP			= val_main val_texture val_color val_map val_map2 gnl utils utils2 errors player
 
 MINI_MAP = mini_map
 

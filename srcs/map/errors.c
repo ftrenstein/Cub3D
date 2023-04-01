@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:23:25 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/30 12:51:26 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/01 20:27:18 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,13 @@ void	ft_error(int num, char *s)
 	else if (num == 7)
 		printf("Error: map can not contain empty lines!\n");
 	else if (num == 8)
-		printf("Error: two players on the map!\n");
+		printf("Error: not one players on the map!\n");
 	else if (num == 9)
 		printf("Error: wrong texture path: %s!\n", s);
 	else if (num == 10)
 		printf("Error: wrong floor or ceiling colour!\n");
+	else if (num == 11)
+		printf("Error: the map is not limited by walls\n");
 	else
 		printf("ERROR %d\n", num);
 	exit(0);

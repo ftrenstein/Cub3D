@@ -6,7 +6,7 @@
 /*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:41:58 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/30 16:32:49 by renstein         ###   ########.fr       */
+/*   Updated: 2023/04/01 21:18:49 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,30 @@ char	**ft_find_begin(int i, char **all_file)
 	return ((char **)0);
 }
 
+// int	ft_count_player(t_params *all)
+// {
+// 	int count;
+// 	int i;
+// 	int j;
+	
+// 	i = 0;
+// 	j = 0;
+// 	count = 0;
+// 	while (all->map[i])
+// 	{
+// 		j = 0;
+// 		while (all->map[i][j])
+// 		{
+// 			if (is_player(map[i][j]))
+// 				count++;
+// 			j++;
+// 		}
+// 		i++;		
+// 	}
+// 	if (count != 1)
+// 		ft_error(8, NULL);
+// }
+
 int	check_map(char **map_start, t_params *params)
 {
 	int	i;
@@ -45,7 +69,7 @@ int	check_map(char **map_start, t_params *params)
 				ft_error(6, NULL);
 			if (is_player(map_start[i][j]))
 			{
-				ft_check_wall(map_start, i, j);
+				ft_check_wall(params, i, j);
 				set_player_position(params, i, j);
 			}
 			j++;
@@ -107,8 +131,8 @@ int	valid_map(int i, t_params *all)
 	all->map_start = ft_find_begin(i, all->all_file);
 	if (all->map_start == 0)
 		ft_error(5, NULL);
-	check_map(all->map_start, all);
 	ft_make_rectangle(all);
-	ft_check_wall(all);
+	// ft_count_player(all);
+	check_map(all->map_start, all);
 	return (0);
 }

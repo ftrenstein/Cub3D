@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/30 13:57:23 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/01 19:19:44 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,6 +143,9 @@ int		ft_make_rectangle(t_params *all);
 void	set_player_position(t_params *params, int i, int j);
 int		is_player(char c);
 int		ft_ending(char *path_map);
+void	ft_check_wall(t_params *all, int i, int j);
+int		ft_search(t_params *all, char** used, int i, int j);
+
 
 void	start_game(t_params *params);
 void	ft_draw(t_params *params);
