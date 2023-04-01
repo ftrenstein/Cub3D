@@ -1,12 +1,12 @@
-NO     ./textures/bluestone.xpm
+NO    ./textures/wall_test4.xpm
 
-SO         ./textures/wall_1.xpm
+SO         ./textures/wall_test2.xpm
 
-WE   ./textures/sky_1.xpm
-EA ./textures/purplestone.xpm
+WE   ./textures/wall_test.xpm
+EA ./textures/wall_test3.xpm
 
-F 3,16,17
-C 20,31,35
+F 111,111,111
+C 50,50,50
 
 111111111111111111111
 100000000000000000001
@@ -20,5 +20,5 @@ C 20,31,35
 1111100111111110001
 1000000000000000001
 1000000000000000001
-1000000000000000011
+1000000000000000001
 1111111111111111111
