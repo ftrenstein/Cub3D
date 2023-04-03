@@ -1,5 +1,7 @@
 NAME	= cub3d
 
+NAME_BONUS	= cub3d_bonus
+
 HEADER	= includes/cub3d.h
 
 MAIN		= main start_game
@@ -44,14 +46,14 @@ all:		$(NAME)
 $(NAME):	$(OBJ) $(HEADER)
 	$(CC) $(OBJ) -o $(NAME) $(MLX)
 
-%.o : %.c	$(HEADER)
+%.o : %.c	$(HEADER) $(HEADER_BONUS)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	@rm -f $(OBJ) $(OBJ_BONUS)
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_BONUS)
 
 re: fclean all
 
@@ -59,7 +61,9 @@ test: re
 	@make clean
 	@clear
 
-bonus: $(OBJ_BONUS) $(HEADER_BONUS)
-	$(CC) $(OBJ_BONUS) -o $(NAME) $(MLX)
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS): $(OBJ_BONUS) $(HEADER_BONUS)
+	$(CC) $(OBJ_BONUS) -o $(NAME_BONUS) $(MLX)
 
 .PHONY : all clean fclean re bonus

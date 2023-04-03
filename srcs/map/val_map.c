@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   val_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 01:41:58 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/04/01 21:18:49 by renstein         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:28:01 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,6 @@ char	**ft_find_begin(int i, char **all_file)
 	}
 	return ((char **)0);
 }
-
-// int	ft_count_player(t_params *all)
-// {
-// 	int count;
-// 	int i;
-// 	int j;
-	
-// 	i = 0;
-// 	j = 0;
-// 	count = 0;
-// 	while (all->map[i])
-// 	{
-// 		j = 0;
-// 		while (all->map[i][j])
-// 		{
-// 			if (is_player(map[i][j]))
-// 				count++;
-// 			j++;
-// 		}
-// 		i++;		
-// 	}
-// 	if (count != 1)
-// 		ft_error(8, NULL);
-// }
 
 int	check_map(char **map_start, t_params *params)
 {
@@ -132,7 +108,8 @@ int	valid_map(int i, t_params *all)
 	if (all->map_start == 0)
 		ft_error(5, NULL);
 	ft_make_rectangle(all);
-	// ft_count_player(all);
 	check_map(all->map_start, all);
+	if (all->player->pos_x == -1)
+		ft_error(8, NULL);
 	return (0);
 }

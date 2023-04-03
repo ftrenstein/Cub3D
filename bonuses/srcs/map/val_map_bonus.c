@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:45 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/30 14:14:12 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:29:25 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int	check_map(char **map_start, t_params *params)
 					&& !ft_isspace(map_start[i][j]))
 				ft_error(6, NULL);
 			if (is_player(map_start[i][j]))
+			{
+				ft_check_wall(params, i, j);
 				set_player_position(params, i, j);
+			}
 			j++;
 		}
 		if (map_start[i][0] == '\n')
@@ -104,7 +107,9 @@ int	valid_map(int i, t_params *all)
 	all->map_start = ft_find_begin(i, all->all_file);
 	if (all->map_start == 0)
 		ft_error(5, NULL);
-	check_map(all->map_start, all);
 	ft_make_rectangle(all);
+	check_map(all->map_start, all);
+	if (all->player->pos_x == -1)
+		ft_error(8, NULL);
 	return (0);
 }

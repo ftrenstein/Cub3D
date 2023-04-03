@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:23:25 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/30 14:10:01 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:23:52 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void	ft_error(int num, char *s)
 		printf("Error: wrong texture path: %s!\n", s);
 	else if (num == 10)
 		printf("Error: wrong floor or ceiling colour!\n");
+	else if (num == 12)
+		printf("Error: map has to be surrounded by walls!\n");
 	else
 		printf("ERROR %d\n", num);
 	exit(0);

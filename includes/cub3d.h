@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/01 19:19:44 by renstein         ###   ########.fr       */
+/*   Updated: 2023/04/03 18:21:01 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 # define BUFFER_SIZE 5000
 
-# define WINDOW_W 1080
-# define WINDOW_H 720
+# define WINDOW_W 1366
+# define WINDOW_H 768
 
 # define KEY_M 109
 # define KEY_W 119
@@ -144,8 +144,7 @@ void	set_player_position(t_params *params, int i, int j);
 int		is_player(char c);
 int		ft_ending(char *path_map);
 void	ft_check_wall(t_params *all, int i, int j);
-int		ft_search(t_params *all, char** used, int i, int j);
-
+int		ft_search(t_params *all, char **used, int i, int j);
 
 void	start_game(t_params *params);
 void	ft_draw(t_params *params);
