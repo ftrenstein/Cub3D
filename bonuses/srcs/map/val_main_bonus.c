@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:21:32 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 20:57:23 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:20:22 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	check_path(char *path_map, t_params *all)
 {
 	int	fd;
-	
+
 	if (ft_ending(path_map, ".cub") != 0)
 		ft_error(12, path_map, all);
 	fd = open(path_map, O_RDONLY);
