@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:23:25 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/01 20:27:18 by renstein         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:03:28 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,41 @@ void	my_free(t_params *all)
 {
 	int	i;
 
-	free(all->nord);
-	free(all->south);
-	free(all->west);
-	free(all->east);
+	if (!all)
+		return ;
 	i = 0;
-	while (all->all_file[i])
-		free(all->all_file[i++]);
-	free(all->all_file);
+	if (all->all_file)
+	{
+		while (all->all_file[i])
+			free(all->all_file[i++]);
+		free(all->all_file);
+	}
 	i = 0;
-	while (i < all->map_height)
-		free(all->map[i++]);
-	free(all->map);
-	mlx_destroy_image(all->mlx, all->textures[0].img);
-	mlx_destroy_image(all->mlx, all->textures[1].img);
-	mlx_destroy_image(all->mlx, all->textures[2].img);
-	mlx_destroy_image(all->mlx, all->textures[3].img);
-	mlx_destroy_window(all->mlx, all->mlx_win);
-	free(all->player);
-	free(all->mlx);
+	if (all->map)
+	{
+		while (i < all->map_height)
+			free(all->map[i++]);
+		free(all->map);
+	}
+	if (all->mlx)
+	{
+		if (all->textures[0].img)
+		{
+			mlx_destroy_image(all->mlx, all->textures[0].img);
+			mlx_destroy_image(all->mlx, all->textures[1].img);
+			mlx_destroy_image(all->mlx, all->textures[2].img);
+			mlx_destroy_image(all->mlx, all->textures[3].img);
+		}
+		mlx_destroy_window(all->mlx, all->mlx_win);
+		free(all->mlx);
+	}
+	if (all->player)
+		free(all->player);
 	ft_memset(&all, 0, sizeof(all));
 	free(all);
 }
 
-void	ft_error(int num, char *s)
+void	ft_error(int num, char *s, t_params *all)
 {
 	if (num == 0)
 		printf("Error: duplicate texture! Please check them\n");
@@ -63,7 +74,10 @@ void	ft_error(int num, char *s)
 		printf("Error: wrong floor or ceiling colour!\n");
 	else if (num == 11)
 		printf("Error: the map is not limited by walls\n");
+	else if (num == 12)
+		printf("Error: wrong path for the map: %s!\n", s);
 	else
 		printf("ERROR %d\n", num);
-	exit(0);
+	my_free(all);
+	exit (num + 1);
 }

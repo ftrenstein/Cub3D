@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:03:45 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 18:29:25 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 20:44:32 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	check_map(char **map_start, t_params *params)
 			if (map_start[i][j] != '1' && map_start[i][j] != '0'
 					&& !is_player(map_start[i][j])
 					&& !ft_isspace(map_start[i][j]))
-				ft_error(6, NULL);
+				ft_error(6, NULL, params);
 			if (is_player(map_start[i][j]))
 			{
 				ft_check_wall(params, i, j);
@@ -51,7 +51,7 @@ int	check_map(char **map_start, t_params *params)
 			j++;
 		}
 		if (map_start[i][0] == '\n')
-			ft_error(7, NULL);
+			ft_error(7, NULL, params);
 		i++;
 	}
 	return (0);
@@ -96,7 +96,7 @@ int	ft_make_rectangle(t_params *all)
 	all->map_width = len - 1;
 	all->map = (char **)malloc((i + 1) * sizeof(char *));
 	j = 0;
-	while (j < (i + 1))
+	while (j < i)
 		all->map[j++] = (char *)malloc(len + 1);
 	copy_map(all->map_start, all->map, len);
 	return (0);
@@ -106,10 +106,10 @@ int	valid_map(int i, t_params *all)
 {
 	all->map_start = ft_find_begin(i, all->all_file);
 	if (all->map_start == 0)
-		ft_error(5, NULL);
+		ft_error(5, NULL, all);
 	ft_make_rectangle(all);
 	check_map(all->map_start, all);
 	if (all->player->pos_x == -1)
-		ft_error(8, NULL);
+		ft_error(8, NULL, all);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 13:46:55 by mlakenya          #+#    #+#             */
-/*   Updated: 2023/03/30 14:10:59 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 20:24:25 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	set_player_direction(t_params *params, double dirX, double dirY)
 void	set_player_position(t_params *params, int i, int j)
 {
 	if (params->player->pos_x != -1)
-		ft_error(8, NULL);
+		ft_error(8, NULL, params);
 	else
 	{
 		params->player->pos_x = j + 0.5f;

@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:53:34 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/30 14:14:27 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:12:23 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,14 @@ int	ft_isspace(int c)
 	return (0);
 }
 
-int	ft_ending(char *path_map)
+int	ft_ending(char *path_map, char *end)
 {
-	char	*cub;
 	int		len;
 
-	cub = ".cub";
 	len = ft_strlen(path_map);
 	if (len <= 5)
 		return (1);
-	return (ft_strcmp(path_map + len - 4, cub));
+	return (ft_strcmp(path_map + len - 4, end));
 }
 
 void	texture_xpm(t_params *all)
@@ -58,37 +56,35 @@ void	texture_xpm(t_params *all)
 			&all->textures[0].endian);
 }
 
-int	valid_texture_path(char *dir)
+int	valid_texture_path(char *dir, t_params *all)
 {
 	int	fd;
 
+	if (ft_ending(dir, ".xpm") != 0)
+		ft_error(9, dir, all);
 	fd = open(dir, O_RDONLY);
 	if (fd < 0)
-		ft_error(9, dir);
+		ft_error(9, dir, all);
+	close(fd);
 	return (1);
 }
 
-int	ft_alloc_memory(char *texture, char **dir)
+int	ft_alloc_memory(char *texture, char **dir, t_params *all)
 {
 	int	i;
 	int	k;
 
 	k = 0;
 	i = 0;
-	if (*dir != 0)
-		ft_error(0, NULL);
+	if (*dir != NULL)
+		ft_error(0, NULL, all);
 	while (ft_isspace(*texture))
 		texture++;
-	*dir = calloc(ft_strlen(texture), sizeof(char));
-	if (!*dir)
-		return (0);
-	while (texture[i] && texture[i] != '\n')
-	{
-		(*dir)[k] = texture[i];
-		i++;
-		k++;
-	}
-	if (valid_texture_path(*dir))
-		return (1);
-	return (0);
+	*dir = texture;
+	while (*texture && *texture != '\n')
+		texture++;
+	if (*texture == '\n')
+		*texture = '\0';
+	valid_texture_path(*dir, all);
+	return (1);
 }

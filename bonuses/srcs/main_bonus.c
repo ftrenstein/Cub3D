@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 22:02:07 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/30 14:09:29 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 21:27:22 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static void	init_params(t_params *all)
 	if (!all->player)
 		ft_exit(all);
 	all->player->pos_x = -1;
+	all->player->dir_z = 0;
 	all->count_par = 0;
 	all->move.up = 0;
 	all->move.down = 0;

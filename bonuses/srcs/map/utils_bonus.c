@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 23:24:49 by renstein          #+#    #+#             */
-/*   Updated: 2023/03/30 14:11:51 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 20:23:48 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_clear(t_params *all)
 	free(all->all_file);
 }
 
-int	ft_atoi(char *str)
+int	ft_atoi(char *str, t_params *all)
 {
 	int	sum;
 	int	sign;
@@ -94,5 +94,7 @@ int	ft_atoi(char *str)
 			found = 0;
 		str++;
 	}
+	if (found == 0 && *(str - 1) != '\n')
+		ft_error(10, NULL, all);
 	return (sign * sum);
 }
