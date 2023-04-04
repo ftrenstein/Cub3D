@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:53:34 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 22:09:18 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/03 22:22:44 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,12 @@ int	valid_texture_path(char *dir, t_params *all)
 {
 	int	fd;
 
+	if (ft_ending(dir, ".xpm") != 0)
+		ft_error(9, dir, all);
 	fd = open(dir, O_RDONLY);
 	if (fd < 0)
 		ft_error(9, dir, all);
+	close(fd);
 	return (1);
 }
 
