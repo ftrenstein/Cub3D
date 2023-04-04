@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 23:24:49 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 20:23:48 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:06:34 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	ft_clear(t_params *all)
 	free(all->all_file);
 }
 
-int	ft_atoi(char *str, t_params *all)
+int	ft_atoi(char *str)
 {
 	int	sum;
 	int	sign;
@@ -95,6 +95,6 @@ int	ft_atoi(char *str, t_params *all)
 		str++;
 	}
 	if (found == 0 && *(str - 1) != '\n')
-		ft_error(10, NULL, all);
+		return (-1);
 	return (sign * sum);
 }

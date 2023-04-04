@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   val_map2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:44:37 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 20:42:11 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:53:15 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,13 @@ void	ft_check_wall(t_params *all, int i, int j)
 		ft_memset(used[k - 1], 0, all->map_width);
 	}
 	if (ft_search(all, used, i, j) == 1)
+	{
+		k = 0;
+		while (k < all->map_height)
+			free(used[k++]);
+		free(used);
 		ft_error(11, NULL, all);
+	}
 	k = 0;
 	while (k < all->map_height)
 		free(used[k++]);

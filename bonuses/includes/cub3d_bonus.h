@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
+/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 19:05:41 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 21:31:13 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:06:47 by renstein         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ int		is_player(char c);
 int		ft_ending(char *path_map, char *end);
 void	ft_check_wall(t_params *all, int i, int j);
 int		ft_search(t_params *all, char **used, int i, int j);
-int		ft_atoi(char *str, t_params *all);
+int		ft_atoi(char *str);
 
 void	start_game(t_params *params);
 void	ft_draw(t_params *params);
