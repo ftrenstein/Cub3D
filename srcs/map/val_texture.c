@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:53:34 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 22:22:44 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:58:22 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,35 +21,35 @@ int	ft_isspace(int c)
 	return (0);
 }
 
-int	ft_ending(char *path_map, char *end)
+void	check_texture(void *img, char *name, t_params *all)
 {
-	int		len;
-
-	len = ft_strlen(path_map);
-	if (len <= 5)
-		return (1);
-	return (ft_strcmp(path_map + len - 4, end));
+	if (img == NULL)
+		ft_error(13, name, all);
 }
 
 void	texture_xpm(t_params *all)
 {
 	all->textures[1].img = mlx_xpm_file_to_image(all->mlx,
 			all->nord, &all->textures[1].width, &all->textures[1].height);
+	check_texture(all->textures[1].img, all->nord, all);
 	all->textures[1].addr = mlx_get_data_addr(all->textures[1].img,
 			&all->textures[1].bits_per_pixel, &all->textures[1].line_length,
 			&all->textures[1].endian);
 	all->textures[2].img = mlx_xpm_file_to_image(all->mlx,
 			all->east, &all->textures[2].width, &all->textures[2].height);
+	check_texture(all->textures[2].img, all->east, all);
 	all->textures[2].addr = mlx_get_data_addr(all->textures[2].img,
 			&all->textures[2].bits_per_pixel, &all->textures[2].line_length,
 			&all->textures[2].endian);
 	all->textures[3].img = mlx_xpm_file_to_image(all->mlx,
 			all->south, &all->textures[3].width, &all->textures[3].height);
+	check_texture(all->textures[3].img, all->south, all);
 	all->textures[3].addr = mlx_get_data_addr(all->textures[3].img,
 			&all->textures[3].bits_per_pixel, &all->textures[3].line_length,
 			&all->textures[3].endian);
 	all->textures[0].img = mlx_xpm_file_to_image(all->mlx,
 			all->west, &all->textures[0].width, &all->textures[0].height);
+	check_texture(all->textures[0].img, all->west, all);
 	all->textures[0].addr = mlx_get_data_addr(all->textures[0].img,
 			&all->textures[0].bits_per_pixel, &all->textures[0].line_length,
 			&all->textures[0].endian);

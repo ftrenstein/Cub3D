@@ -6,7 +6,7 @@
 /*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 17:23:25 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/03 22:18:34 by mlakenya         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:40:06 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,15 @@ static void	my_free2(t_params *all)
 	if (all->mlx)
 	{
 		if (all->textures[0].img)
-		{
 			mlx_destroy_image(all->mlx, all->textures[0].img);
+		if (all->textures[1].img)
 			mlx_destroy_image(all->mlx, all->textures[1].img);
+		if (all->textures[2].img)
 			mlx_destroy_image(all->mlx, all->textures[2].img);
+		if (all->textures[3].img)
 			mlx_destroy_image(all->mlx, all->textures[3].img);
-		}
 		mlx_destroy_window(all->mlx, all->mlx_win);
+		mlx_destroy_display(all->mlx);
 		free(all->mlx);
 	}
 	if (all->player)
@@ -69,6 +71,8 @@ static void	ft_error2(int num, char *s)
 		printf("Error: the map is not limited by walls\n");
 	else if (num == 12)
 		printf("Error: wrong path for the map: %s!\n", s);
+	else if (num == 13)
+		printf("Error: bad texture file: %s!\n", s);
 	else
 		printf("ERROR %d\n", num);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   val_map2_bonus.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: renstein <renstein@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mlakenya <mlakenya@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 15:44:37 by renstein          #+#    #+#             */
-/*   Updated: 2023/04/04 15:53:15 by renstein         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:54:16 by mlakenya         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,16 @@ int	ft_search(t_params *all, char **used, int i, int j)
 	if (ft_search(all, used, i - 1, j) == 1)
 		return (1);
 	return (0);
+}
+
+int	ft_ending(char *path_map, char *end)
+{
+	int		len;
+
+	len = ft_strlen(path_map);
+	if (len <= 5)
+		return (1);
+	return (ft_strcmp(path_map + len - 4, end));
 }
 
 void	ft_check_wall(t_params *all, int i, int j)
